@@ -1,4 +1,5 @@
 import { APP } from '@/constants/theme'
+import * as Haptics from 'expo-haptics'
 import React from 'react'
 import { Pressable, StyleSheet, TouchableOpacityProps } from 'react-native'
 import { Text } from './Text'
@@ -38,7 +39,14 @@ interface ButtonProps extends TouchableOpacityProps {
 	textVariant?: keyof typeof APP.fontSizes
 }
 
-export const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, textVariant = 'h4', style, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({
+	variant = 'primary',
+	children,
+	textVariant = 'h4',
+	style,
+	onPress,
+	...props
+}) => {
 	const { backgroundColor, textColor } = variants[variant]
 
 	const buttonStyle = [styles.button, style]
@@ -49,6 +57,10 @@ export const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, t
 				return [...buttonStyle, { backgroundColor, opacity: pressed ? 0.7 : 1 }]
 			}}
 			{...props}
+			onPress={(e) => {
+				Haptics.selectionAsync()
+				onPress && onPress(e)
+			}}
 		>
 			<Text variant={textVariant} style={{ color: textColor }}>
 				{children}

@@ -16,8 +16,8 @@ export const APP = {
 	},
 	fontSizes: {
 		xl: {
-			size: 36, // 3.5rem ≈ 36px
-			weight: '900'
+			size: 60, // 3.5rem ≈ 36px
+			weight: '500'
 		},
 		h1: {
 			size: 24, // 1.6rem ≈ 24px
@@ -41,8 +41,6 @@ export const APP = {
 		}
 	},
 	fonts: {
-		primary: 'SpaceMono',
-		medium: 'SpaceMono-Medium',
-		bold: 'SpaceMono-Bold'
+		primary: 'SpaceMono'
 	}
 } as const

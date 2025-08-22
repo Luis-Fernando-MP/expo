@@ -23,8 +23,7 @@ export const Text: React.FC<CustomTextProps> = ({ variant = 'p', color = 'fn1', 
 				{
 					fontSize: size,
 					fontWeight: weight,
-					color: colors[color],
-					fontFamily: fonts.primary
+					color: colors[color]
 				},
 				style
 			]}
@@ -37,6 +36,7 @@ export const Text: React.FC<CustomTextProps> = ({ variant = 'p', color = 'fn1', 
 
 const styles = StyleSheet.create({
 	text: {
-		includeFontPadding: false
+		includeFontPadding: false,
+		fontFamily: fonts.primary
 	}
 })
