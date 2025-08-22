@@ -1,29 +1,25 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { View } from 'react-native'
+import './global.css'
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { useLoadFonts } from '@/hooks/useLoadFonts'
+import { Slot } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context'
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+const Bootstrap = () => {
+	const insets = useSafeAreaInsets()
+	const fontsLoaded = useLoadFonts()
 
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
+	if (!fontsLoaded) return null
 
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+	return (
+		<View className="flex-1 bg-bg1 pb-10">
+			<StatusBar style="auto" />
+			<SafeAreaProvider style={{ paddingTop: insets.top }}>
+				<Slot />
+			</SafeAreaProvider>
+		</View>
+	)
 }
+
+export default Bootstrap
