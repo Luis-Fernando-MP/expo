@@ -18,9 +18,11 @@ export default function HomeScreen() {
 							Lima, Perú
 						</Text>
 					</View>
-					<Button className="py-2 px-2 rounded-full border-2 border-tn1">
-						<Image source={{ uri: 'https://picsum.photos/400/200?random=1' }} className="w-10 h-10 rounded-full" />
-					</Button>
+					<Link href={'/auth'} asChild>
+						<Button className="py-2 px-2 rounded-full border-2 border-tn1">
+							<Image source={{ uri: 'https://picsum.photos/400/200?random=1' }} className="w-10 h-10 rounded-full" />
+						</Button>
+					</Link>
 				</View>
 
 				{/* Input de pedido central */}
