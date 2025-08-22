@@ -1,20 +1,16 @@
+import { COLORS } from '@/constants/Colors'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Tabs } from 'expo-router'
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../../tailwind.config.js'
-
-const fullConfig = resolveConfig(tailwindConfig)
-const colors = fullConfig.theme.colors as any
 
 export default function StackLayout() {
 	return (
 		<Tabs
 			screenOptions={{
-				tabBarActiveTintColor: colors.tn1.DEFAULT,
-				tabBarInactiveTintColor: colors.fn2,
+				tabBarActiveTintColor: COLORS.tn1.DEFAULT,
+				tabBarInactiveTintColor: COLORS.fn2,
 				headerShown: false,
 				tabBarStyle: {
-					backgroundColor: colors.bg1,
+					backgroundColor: COLORS.bg1,
 					borderTopWidth: 0,
 					elevation: 0
 				}

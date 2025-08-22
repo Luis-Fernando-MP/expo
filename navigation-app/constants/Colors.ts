@@ -1,26 +1,21 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../tailwind.config.js'
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+type Colors = {
+	bg1: string
+	bg2: string
+	bg3: string
 
-export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
-  },
-};
+	fn1: string
+	fn2: string
+	fnA: string
+
+	tn1: {
+		DEFAULT: string
+		500: string
+		700: string
+	}
+}
+
+const fullConfig = resolveConfig(tailwindConfig)
+export const COLORS = fullConfig.theme.colors as any as Colors
