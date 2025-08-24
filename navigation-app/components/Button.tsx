@@ -22,6 +22,7 @@ interface ButtonProps extends PressableNoChildren {
 	textVariant?: FontVariants
 	textClassName?: string
 	children?: ReactNode
+	noPadding?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -31,13 +32,14 @@ export const Button: FC<ButtonProps> = ({
 	onPress,
 	className = '',
 	textClassName = '',
+	noPadding = false,
 	...props
 }) => {
 	const { backgroundClass } = variants[variant]
 
-	const baseClasses = 'py-2 px-4 border border-bg3 self-start'
+	const baseClasses = 'border border-bg3 self-start'
 
-	const pressableClassName = `${backgroundClass} ${baseClasses} ${className}`.trim()
+	const pressableClassName = `${!noPadding && 'py-2 px-4'} ${backgroundClass} ${baseClasses} ${className}`.trim()
 
 	return (
 		<Pressable

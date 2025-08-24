@@ -22,6 +22,7 @@ const CustomDrawer: FC<Props> = ({ style, ...props }) => {
 					drawerStyle: {
 						backgroundColor: COLORS.bg1
 					},
+					// Estilos del header
 					headerStyle: {
 						backgroundColor: COLORS.bg1
 					},
@@ -42,6 +43,7 @@ const CustomDrawer: FC<Props> = ({ style, ...props }) => {
 				<Drawer.Screen
 					name="(pages)"
 					options={{
+						headerShown: false,
 						drawerLabel: 'Inicio',
 						title: '🏠 Inicio',
 						drawerIcon: ({ color, size }) => <Ionicons name="home" size={size} color={color} />

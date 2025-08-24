@@ -1,5 +1,6 @@
 import { Button } from '@/components/Button'
 import { Text } from '@/components/Text'
+import UserButton from '@/components/UserButton'
 import { categories, productOffers, quickPrompts, restaurants } from '@/store/data.store'
 import { Link, router } from 'expo-router'
 import { FlatList, Image, ScrollView, TextInput, View } from 'react-native'
@@ -18,11 +19,7 @@ export default function HomeScreen() {
 							Lima, Perú
 						</Text>
 					</View>
-					<Link href={'/auth'} asChild>
-						<Button className="py-2 px-2 rounded-full border-2 border-tn1">
-							<Image source={{ uri: 'https://picsum.photos/400/200?random=1' }} className="w-10 h-10 rounded-full" />
-						</Button>
-					</Link>
+					<UserButton />
 				</View>
 
 				{/* Input de pedido central */}

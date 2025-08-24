@@ -4,8 +4,8 @@ import Markdown from 'react-native-markdown-display'
 import { Button } from '@/components/Button'
 import { Text } from '@/components/Text'
 import { productOffers } from '@/store/data.store'
-import { Redirect, router, useLocalSearchParams } from 'expo-router'
-import type { FC } from 'react'
+import { Redirect, router, useLocalSearchParams, useNavigation } from 'expo-router'
+import { useEffect, type FC } from 'react'
 
 const markdownStyles: StyleSheet.NamedStyles<any> = {
 	body: {
@@ -46,6 +46,11 @@ const markdownStyles: StyleSheet.NamedStyles<any> = {
 const ProductScreen: FC = () => {
 	const { id } = useLocalSearchParams()
 	const product = productOffers.find((p) => String(p.id) === id)
+	const navigation = useNavigation()
+
+	useEffect(() => {
+		navigation.setOptions({ title: product?.name ?? 'producto' })
+	}, [navigation, product])
 
 	if (!product) return <Redirect href={'/home'} />
 
