@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-   content: ['./components/**/*.{js,jsx,ts,tsx}','./app/**/*.{js,jsx,ts,tsx}'],
-   presets: [require('nativewind/preset')],
+   content: ['./src/**/*.{js,jsx,ts,tsx}','./app/**/*.{js,jsx,ts,tsx}'],
+   presets: [require('nativewind/preset')], 
    theme: {
       extend: {
          fontFamily: {
@@ -10,24 +10,27 @@ module.exports = {
             instrument: ['InstrumentSerif_400Regular_Italic', 'serif']
          },
          colors: {
-            // Fondo
-            bg1: '#1D2021',
-            bg2: '#1A1A1A',
-            bg3: '#262626',
-				// Textos
-            fn1: '#EFEFEF', 
-            fn2: '#E6D7AF', 
-            // Botones, acentos
+            // Fondos cálidos (arena/desierto)
+            bg1: '#F9F6F1', // arena clara
+            bg2: '#F0E6D2', // beige cálido
+            bg3: '#E6D7AF', // tono más tostado
+            
+            // Textos
+            fn1: '#2C2C2C',  // casi negro para contraste
+            fn2: '#5A4E36',  // marrón suave (como tierra)
+            
+            // Botones, acentos (sol/naranja desierto)
             fnA: { 
-               DEFAULT: '#FFB86C',
-               500: '#FF9933',
-               700: '#E68A00'
+               DEFAULT: '#E9A64D', // dorado cálido
+               500: '#D98E2B',
+               700: '#B86B15'
             },
-				// Color principal, para elementos activos, focus, etc.
+            
+            // Color principal (verde cactus)
             tn1: { 
-               DEFAULT: '#7AA2F7',
-               500: '#5C8EF5',
-               700: '#477BE3'
+               DEFAULT: '#3B7D5D',
+               500: '#2E6A4F',
+               700: '#24533D'
             }
          }
       }

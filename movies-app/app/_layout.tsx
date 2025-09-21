@@ -1,18 +1,19 @@
-import { View } from 'react-native'
 import '../global.css'
 
 import { StatusBar } from 'expo-status-bar'
 
-import { Slot } from 'expo-router'
+import { Stack } from 'expo-router'
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 const Bootstrap = () => {
 	return (
-		<View>
+		<QueryClientProvider client={queryClient}>
 			<StatusBar style="auto" />
-			<Slot />{' '}
-			{/*Usamos este Slot para obligar a todas las paginas a pasar por
-			el layout*/}
-		</View>
+			<Stack screenOptions={{ headerShown: false }}></Stack>
+		</QueryClientProvider>
 	)
 }
 
